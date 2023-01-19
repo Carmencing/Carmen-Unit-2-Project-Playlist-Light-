@@ -19,18 +19,12 @@ let songColumn = document.querySelector(".display-song");
 let artistColumn = document.querySelector(".display-artist");
 let linkColumn = document.querySelector(".display-link");
 
-let ACImage = `<img src = "https://i.ytimg.com/vi/EFlpPy-hj5o/maxresdefault.jpg">`
-let ShadowImage = `<img src = "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3Dmqd_Bex8BzI&psig=AOvVaw21iQVNDzkymw0eduqqruhr&ust=1670551415720000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCJi064_36PsCFQAAAAAdAAAAABAI">`
-let NintendoImage = `<https://i.scdn.co/image/ab6775700000ee85fc1724cf4e89079645b8c7b4">`
-
-
-
 // task 7: create and populate an array to store your image urls. Create three more arrays. One to store your song names, one for the artists, and a last one for the song links.
 
 let images = [
-  ACImage,
-  ShadowImage,
-  NintendoImage];
+  "https://i.ytimg.com/vi/EFlpPy-hj5o/maxresdefault.jpg",
+  "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3Dmqd_Bex8BzI&psig=AOvVaw21iQVNDzkymw0eduqqruhr&ust=1670551415720000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCJi064_36PsCFQAAAAAdAAAAABAI",
+"https://i.scdn.co/image/ab6775700000ee85fc1724cf4e89079645b8c7b4"];
 let songNames = [
   "Island (Nighttime) -     Animal Crossing New Leaf Music Extended",
   "fewest thoughts, head emptiest || video game music",
@@ -80,7 +74,8 @@ function addSongInfo() {
   songNames.push(songNameValue);
   artists.push(artist.value);
   links.push(songLink.value);
-
+console.log(images);
+  
 }
 
 

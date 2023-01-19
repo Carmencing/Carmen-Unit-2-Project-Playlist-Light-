@@ -27,22 +27,22 @@ let NintendoImage = `<https://i.scdn.co/image/ab6775700000ee85fc1724cf4e89079645
 
 // task 7: create and populate an array to store your image urls. Create three more arrays. One to store your song names, one for the artists, and a last one for the song links.
 
-const images = [
-  ACImage, 
-  ShadowImage, 
+let images = [
+  ACImage,
+  ShadowImage,
   NintendoImage];
-const songNames = [
-  "Island (Nighttime) -     Animal Crossing New Leaf Music Extended", 
-  "fewest thoughts, head emptiest || video game music", 
+let songNames = [
+  "Island (Nighttime) -     Animal Crossing New Leaf Music Extended",
+  "fewest thoughts, head emptiest || video game music",
   "no thoughts, head empty || nintendo music [niche & obscure edition]"];
 
-const artists = [
+let artists = [
   "Animal Crossing",
   "Shadowwatnoon",
   "Nintendo"
 ];
 
-const links = [
+let links = [
   "https://www.youtube.com/watch?v=u4cTteiooQE",
   "https://www.youtube.com/watch?v=mqd_Bex8BzI",
   "https://www.youtube.com/watch?v=wiHwfL9BtAg"
@@ -66,14 +66,21 @@ const links = [
 
 
 
-
 function addSongInfo() {
 
-// task 9: declare a variable to save the user input of the image url. Declare three more variables that save user input: One for the song names, one for the artists, and a last one for the song links.
+  // task 9: declare a variable to save the user input of the image url. Declare three more variables that save user input: One for the song names, one for the artists, and a last one for the song links.
 
-// task 10: use `.push()` to add each input value to the correct array.
+  // task 10: use `.push()` to add each input value to the correct array.
   let imageValue = image.value;
-console.log("imageValue");
+  let songNameValue = songName.value;
+  let artistValue = artist.value;
+  let songLinkValue = songLink.value;
+  
+  images.push(imageValue);
+  songNames.push(songNameValue);
+  artists.push(artist.value);
+  links.push(songLink.value);
+
 }
 
 
@@ -92,14 +99,14 @@ function emptyDisplay() {
 
 function displaySongInfo() {
 
-// task 8: loop through your images array and display the images to your songs in the correct div. Create three more loops. One for the song names, one for the artists, and a last one for the song links.
+  // task 8: loop through your images array and display the images to your songs in the correct div. Create three more loops. One for the song names, one for the artists, and a last one for the song links.
 
-let imagesArrayLength = images.length;
- for (var i = 0; i < imagesArrayLength; i++) {
- imageColumn.insertAdjacentHTML("beforeend","gay");
-}
-let songNamesArrayLength = songNames.length;
-let artistsArrayLength = artists.length;
+  let imagesArrayLength = images.length;
+  for (var i = 0; i < imagesArrayLength; i++) {
+    imageColumn.insertAdjacentHTML("beforeend", "image");
+  }
+  let songNamesArrayLength = songNames.length;
+  let artistsArrayLength = artists.length;
 
 }
 

@@ -23,8 +23,8 @@ let linkColumn = document.querySelector(".display-link");
 
 let images = [
   "https://i.ytimg.com/vi/EFlpPy-hj5o/maxresdefault.jpg",
-  "https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.youtube.com%2Fwatch%3Fv%3Dmqd_Bex8BzI&psig=AOvVaw21iQVNDzkymw0eduqqruhr&ust=1670551415720000&source=images&cd=vfe&ved=0CA8QjRxqFwoTCJi064_36PsCFQAAAAAdAAAAABAI",
-"https://i.scdn.co/image/ab6775700000ee85fc1724cf4e89079645b8c7b4"];
+  "https://i1.sndcdn.com/artworks-WvBUI9oxT4qw0r12-jLFGeQ-t500x500.jpg",
+  "https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e7ce4f78-b48f-4757-8802-edbc133879ab/detbgh9-e57ce590-8135-4b46-a735-b1d008ac0bae.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2U3Y2U0Zjc4LWI0OGYtNDc1Ny04ODAyLWVkYmMxMzM4NzlhYlwvZGV0YmdoOS1lNTdjZTU5MC04MTM1LTRiNDYtYTczNS1iMWQwMDhhYzBiYWUuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.6ES9UjqR4am2hSb7Gi9SPF5oK_Z23mbeX6fPSRx93TI"];
 let songNames = [
   "Island (Nighttime) -     Animal Crossing New Leaf Music Extended",
   "fewest thoughts, head emptiest || video game music",
@@ -74,11 +74,9 @@ function addSongInfo() {
   songNames.push(songNameValue);
   artists.push(artist.value);
   links.push(songLink.value);
-console.log(images);
+
   
 }
-
-
 
 
 /******** this function empties the display divs each time the button is clicked so that your playlist does not repeatedly add the data too many times. Where should this function be placed???********/
@@ -96,13 +94,21 @@ function displaySongInfo() {
 
   // task 8: loop through your images array and display the images to your songs in the correct div. Create three more loops. One for the song names, one for the artists, and a last one for the song links.
 
-  let imagesArrayLength = images.length;
-  for (var i = 0; i < imagesArrayLength; i++) {
-    imageColumn.insertAdjacentHTML("beforeend", "image");
-  }
-  let songNamesArrayLength = songNames.length;
-  let artistsArrayLength = artists.length;
+for(let i = 0; i < images.length; i++){
+imageColumn.insertAdjacentHTML('beforeend', `<img src=${images[i]}>`)
+}
+for(let i = 0; i < songNames.length; i++){
+songColumn.insertAdjacentHTML('beforeend', `<p> ${songNames[i]}</p>`)
+}
 
+for(let i = 0; i < artists.length; i++){
+artistColumn.insertAdjacentHTML('beforeend', `<p> ${artists[i]}</p>`)
+}
+
+for(let i = 0; i < links.length; i++){
+linkColumn.insertAdjacentHTML('beforeend',`<a href="${links[i]}">Link</a>`)
+}
+  
 }
 
 
@@ -117,3 +123,7 @@ add.onclick = function() {
 
 // function call to display stored songs
 displaySongInfo();
+
+
+console.log(images.length);
+  

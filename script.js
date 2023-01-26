@@ -1,26 +1,14 @@
-// task 5: read through the JavaScript starter code to determine where each given function is declared and where each given function is called.
-
-
-// input variables
+// declare input variables
 let image = document.querySelector(".image");
 let songName = document.querySelector(".song-name");
 let artist = document.querySelector(".artist");
 let songLink = document.querySelector(".song-link");
 
-let imageColumn = document.querySelector(".display-image");
 
-// button variable
+// declare add button
 let add = document.querySelector(".add");
 
-
-// task 6: declare variables for your display divs: the image url, song name, artist, and song link. Go back to the HTML to check that you are using the correct class names.
-let imgColumn = document.querySelector(".display-image");
-let songColumn = document.querySelector(".display-song");
-let artistColumn = document.querySelector(".display-artist");
-let linkColumn = document.querySelector(".display-link");
-
-// task 7: create and populate an array to store your image urls. Create three more arrays. One to store your song names, one for the artists, and a last one for the song links.
-
+// arrays
 let images = [
   "https://i.ytimg.com/vi/EFlpPy-hj5o/maxresdefault.jpg",
   "https://i1.sndcdn.com/artworks-WvBUI9oxT4qw0r12-jLFGeQ-t500x500.jpg",
@@ -29,104 +17,55 @@ let songNames = [
   "Island (Nighttime) -     Animal Crossing New Leaf Music Extended",
   "fewest thoughts, head emptiest || video game music",
   "no thoughts, head empty || nintendo music [niche & obscure edition]"];
-
 let artists = [
   "Animal Crossing",
   "Shadowwatnoon",
   "Nintendo"
 ];
-
 let links = [
   "https://www.youtube.com/watch?v=u4cTteiooQE",
   "https://www.youtube.com/watch?v=mqd_Bex8BzI",
   "https://www.youtube.com/watch?v=wiHwfL9BtAg"
 ];
 
-
-
-//REFACTOR ARRAYS DAY 
-// task 11: comment out the arrays data.
-// task 12: create an object for each of your songs.
-// task 13: inside each object, add key/value pairs to store the image url, song name, artist, and song link.
-// task 14: create an array that stores all of the objects.
-
-
-
-//REFACTOR LOOPS DAY 
-// task 15: update your `addSongInfo` function so the input values are saved in as values in a new object.
-// task 16: update your `.push()` so the input object is added to your array of objects.
-// task 17: update your loops based on your new array of objects.
-
-
-
-
+// add song info function (push user input (as values) into arrays)
 function addSongInfo() {
-
-  // task 9: declare a variable to save the user input of the image url. Declare three more variables that save user input: One for the song names, one for the artists, and a last one for the song links.
-
-  // task 10: use `.push()` to add each input value to the correct array.
   let imageValue = image.value;
   let songNameValue = songName.value;
   let artistValue = artist.value;
   let songLinkValue = songLink.value;
-  
   images.push(imageValue);
   songNames.push(songNameValue);
-  artists.push(artist.value);
-  links.push(songLink.value);
-
-  
+  artists.push(artistValue);
+  links.push(songLinkValue);
 }
 
+let playlistTable = document.querySelector(".playlistTable");
 
-/******** this function empties the display divs each time the button is clicked so that your playlist does not repeatedly add the data too many times. Where should this function be placed???********/
+// empty table (refresh)
 function emptyDisplay() {
-  imageColumn.innerHTML = "";
-  songColumn.innerHTML = "";
-  artistColumn.innerHTML = "";
-  linkColumn.innerHTML = "";
+  playlistTable.innerHTML = "";
 }
 
-
-
-
+// display each each new piece of information a row split in 4 (1 for each piece of info) using string interpolation
 function displaySongInfo() {
-
-  // task 8: loop through your images array and display the images to your songs in the correct div. Create three more loops. One for the song names, one for the artists, and a last one for the song links.
-
-for(let i = 0; i < images.length; i++){
-imageColumn.insertAdjacentHTML('beforeend', `<img src=${images[i]}>`)
-}
-for(let i = 0; i < songNames.length; i++){
-songColumn.insertAdjacentHTML('beforeend', `<p> ${songNames[i]}</p>`)
-}
-
-for(let i = 0; i < artists.length; i++){
-artistColumn.insertAdjacentHTML('beforeend', `<p> ${artists[i]}</p>`)
+  for (let i = 0; i < images.length; i++) {
+  playlistTable.insertAdjacentHTML("beforeend", `
+  <tr>
+    <td width = 25%><img width = 50% src="${images[i]}"></td>
+    <td width = 25%><p>${songNames[i]}</p></td>
+    <td width = 25%><p>${artists[i]}</p></td>
+    <td width = 25%><a href = "${links[i]}">Link</a></td>
+  </tr>`)
+  }
 }
 
-for(let i = 0; i < links.length; i++){
-linkColumn.insertAdjacentHTML('beforeend',`<a href="${links[i]}">Link</a>`)
-}
-  
-}
-
-
-
-
-
-// click event to add and display songs
+// when button is clicked, clear the current table, add the new info to array, and show the new updated table
 add.onclick = function() {
   emptyDisplay();
   addSongInfo();
-  
   displaySongInfo();
-  
 };
 
-// function call to display stored songs
+// start the screen by showing the songs in array by default
 displaySongInfo();
-
-
-console.log(images.length);
-  

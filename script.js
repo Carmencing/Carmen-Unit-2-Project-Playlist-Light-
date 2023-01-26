@@ -81,10 +81,10 @@ function addSongInfo() {
 
 /******** this function empties the display divs each time the button is clicked so that your playlist does not repeatedly add the data too many times. Where should this function be placed???********/
 function emptyDisplay() {
-  displayImage.innerHTML = "";
-  displaySong.innerHTML = "";
-  displayArtist.innerHTML = "";
-  displayLink.innerHTML = "";
+  imageColumn.innerHTML = "";
+  songColumn.innerHTML = "";
+  artistColumn.innerHTML = "";
+  linkColumn.innerHTML = "";
 }
 
 
@@ -117,8 +117,11 @@ linkColumn.insertAdjacentHTML('beforeend',`<a href="${links[i]}">Link</a>`)
 
 // click event to add and display songs
 add.onclick = function() {
+  emptyDisplay();
   addSongInfo();
+  
   displaySongInfo();
+  
 };
 
 // function call to display stored songs

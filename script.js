@@ -29,20 +29,27 @@ let links = [
 ];
 
 // add song info function (push user input (as values) into arrays)
+
+ // if any bar is empty, stop and dont do anyhitng, else run below
 function addSongInfo() {
-  let imageValue = image.value;
-  let songNameValue = songName.value;
-  let artistValue = artist.value;
-  let songLinkValue = songLink.value;
-  images.push(imageValue);
-  songNames.push(songNameValue);
-  artists.push(artistValue);
-  links.push(songLinkValue);
+  if (image.value === "" || songName.value === ""|| artist.value === "" || songLink.value === "") {
+    return;
+  }
+  else {
+    let imageValue = image.value;
+    let songNameValue = songName.value;
+    let artistValue = artist.value;
+    let songLinkValue = songLink.value;
+    images.push(imageValue);
+    songNames.push(songNameValue);
+    artists.push(artistValue);
+    links.push(songLinkValue);
+  }
 }
 
 let playlistTable = document.querySelector(".playlistTable");
 
-// empty table (refresh)
+// empty the table (refresh)
 function emptyDisplay() {
   playlistTable.innerHTML = "";
 }
@@ -50,7 +57,7 @@ function emptyDisplay() {
 // display each each new piece of information a row split in 4 (1 for each piece of info) using string interpolation
 function displaySongInfo() {
   for (let i = 0; i < images.length; i++) {
-  playlistTable.insertAdjacentHTML("beforeend", `
+    playlistTable.insertAdjacentHTML("beforeend", `
   <tr>
     <td width = 25%><img width = 50% src="${images[i]}"></td>
     <td width = 25%><p>${songNames[i]}</p></td>
@@ -65,6 +72,11 @@ add.onclick = function() {
   emptyDisplay();
   addSongInfo();
   displaySongInfo();
+  image.value = "";
+  songName.value = "";
+  artist.value = "";
+  songLink.value = "";
+
 };
 
 // start the screen by showing the songs in array by default

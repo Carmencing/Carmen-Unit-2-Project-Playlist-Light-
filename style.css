@@ -93,6 +93,7 @@ th{
 td{
   padding:10px;
   text-align:center;
+    word-wrap: break-word;
 }
 img{
   width:  100px;

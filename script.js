@@ -30,10 +30,11 @@ let links = [
 
 // add song info function (push user input (as values) into arrays)
 
- // if any bar is empty, stop and dont do anyhitng, else run below
+// if any bar is empty, stop and dont do anyhitng, else run below
+
 function addSongInfo() {
-  if (image.value === "" || songName.value === ""|| artist.value === "" || songLink.value === "") {
-    return;
+  if (image.value === "" || songName.value === "" || artist.value === "" || songLink.value === "") {
+return;
   }
   else {
     let imageValue = image.value;
@@ -51,7 +52,12 @@ let playlistTable = document.querySelector(".playlistTable");
 
 // empty the table (refresh)
 function emptyDisplay() {
-  playlistTable.innerHTML = "";
+  // playlistTable.innerHTML = "";
+  let rowCount = playlistTable.rows.length;
+  for (var i = rowCount - 1; i > 0; i--) {
+    playlistTable.deleteRow(i);
+
+  }
 }
 
 // display each each new piece of information a row split in 4 (1 for each piece of info) using string interpolation
